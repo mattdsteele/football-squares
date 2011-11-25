@@ -25,8 +25,7 @@ function getMinAndMax(data) {
   var diff = (max - min) / deltas;
   return {"min" : min, "max" : max, "diff" : diff, "deltas" : deltas};
 }
-
-$(function() {
+var populate = function() {
   $.get('/scores.json', function(data) {
     var stats = getMinAndMax(data);
     $.each(data, function(index, value) {
@@ -34,4 +33,8 @@ $(function() {
       makeBackground(square, value.outcome, stats);
     });
   });
+};
+
+$(function() {
+  $('#theButton').click(populate);
 });
