@@ -36,19 +36,18 @@ function getMinAndMax(data) {
   var diff = (max - min) / deltas;
   return {"min" : min, "max" : max, "diff" : diff, "deltas" : deltas};
 }
-var populate = function() {
+function validate(selector) {
   var homeScores = [];
-  $('thead td input').each(function(i,j) { homeScores.push($(j).val()); });
+  $(selector).each(function(i,j) { homeScores.push($(j).val()); });
   if (!$(homeScores).compare([1,2,3,4,5,6,7,8,9,0])) {
     alert("Please enter valid values!");
     return false;
   }
-  homeScores = [];
-  $('tbody td input').each(function(i,j) { homeScores.push($(j).val()); });
-  if (!$(homeScores).compare([1,2,3,4,5,6,7,8,9,0])) {
-    alert("Please enter valid values!");
-    return false;
-  }
+}
+var populate = function() {
+  validate('thead td input');
+  validate('tbody td input');
+
   $.get('/scores.json', function(data) {
     var stats = getMinAndMax(data);
     $.each(data, function(index, value) {
