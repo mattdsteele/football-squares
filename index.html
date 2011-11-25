@@ -9,30 +9,47 @@
         border: 1px solid;
         width: 40px; height: 40px;
       }
+
+      #squares input {
+        width: 80%;
+      }
     </style>
     <script src="js/jquery-1.7.1.min.js"></script>
     <script src="js/squares.js"></script>
   </head>
   <body>
     <h1>Football Squares</h1>
-    <button id="theButton">Push it</button>
-    <table id="squares">
-      <thead>
-        <tr><td></td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></gtr>
-      </thead>
-      <tbody>
-        <tr><td>0</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>3</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>4</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>5</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>6</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>7</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>8</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>9</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      </tbody>
-    </table>
+    <form id="squares-form">
+      <button id="theButton">Push it</button>
+      <table id="squares">
+        <thead>
+          <tr><td></td>
+            <td><input id="away-0" value="0"/></td>
+            <td><input id="away-1" value="1"/></td>
+            <td><input id="away-2" value="2"/></td>
+            <td><input id="away-3" value="3"/></td>
+            <td><input id="away-4" value="4"/></td>
+            <td><input id="away-5" value="5"/></td>
+            <td><input id="away-6" value="6"/></td>
+            <td><input id="away-7" value="7"/></td>
+            <td><input id="away-8" value="8"/></td>
+            <td><input id="away-9" value="9"/></td>
+          </tr>
+          </thead>
+          <tbody>
+            <tr><td><input id="home-0" value="0"/></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td><input id="home-1" value="1"/></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td><input id="home-2" value="2"/></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td><input id="home-3" value="3"/></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td><input id="home-4" value="4"/></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td><input id="home-5" value="5"/></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td><input id="home-6" value="6"/></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td><input id="home-7" value="7"/></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td><input id="home-8" value="8"/></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td><input id="home-9" value="9"/></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </form>
   </body>
 </html>
 
