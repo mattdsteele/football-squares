@@ -9,8 +9,18 @@ jQuery.fn.compare = function(t) {
   return true;
 };
 
-function getSquare(home, away) {
-  return $('table tbody td')[(home * 11) + (away + 1)];
+function arrayIndexOf(val, arr) {
+  for (var i=0; i < arr.length; i++) {
+    if (arr[i] == val) { return i; }
+  }
+  return -1;
+}
+
+function getSquare(home, away, homeScores, awayScores) {
+  var row = arrayIndexOf(away, awayScores);
+  var column = arrayIndexOf(home, homeScores);
+    
+  return $('table tbody td')[(column * 11) + (row + 1)];
 }
 
 var colors = ["CCFFFF", "52FFFF", "BF00FF", "FF00BF", "FF0040", "FF4000"]
@@ -37,21 +47,23 @@ function getMinAndMax(data) {
   return {"min" : min, "max" : max, "diff" : diff, "deltas" : deltas};
 }
 function validate(selector) {
-  var homeScores = [];
-  $(selector).each(function(i,j) { homeScores.push($(j).val()); });
-  if (!$(homeScores).compare([1,2,3,4,5,6,7,8,9,0])) {
+  var numbers = [];
+  $(selector).each(function(i,j) { numbers.push($(j).val()); });
+  if (!$(numbers).compare([1,2,3,4,5,6,7,8,9,0])) {
     alert("Please enter valid values!");
     return false;
   }
+  return numbers;
 }
 var populate = function() {
-  validate('thead td input');
-  validate('tbody td input');
+  var awayScores = validate('thead td input');
+  var homeScores = validate('tbody td input');
+  if (!(awayScores && homeScores)) { return false; }
 
   $.get('/scores.json', function(data) {
     var stats = getMinAndMax(data);
     $.each(data, function(index, value) {
-      var square = $(getSquare(value.home, value.away));
+      var square = $(getSquare(value.home, value.away, homeScores, awayScores));
       makeBackground(square, value.outcome, stats);
     });
   });
