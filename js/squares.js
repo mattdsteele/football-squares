@@ -55,12 +55,17 @@ function validate(selector) {
   }
   return numbers;
 }
+function clearAllData() {
+  $('table td[data-outcome]').css('background-color','').attr('data-outcome','');
+}
 var populate = function() {
+  clearAllData();
   var awayScores = validate('thead td input');
   var homeScores = validate('tbody td input');
   if (!(awayScores && homeScores)) { return false; }
 
-  $.get('/scores.json', function(data) {
+  var dataset=$('#dataset').val();
+  $.get('/' + dataset + '.json', function(data) {
     var stats = getMinAndMax(data);
     $.each(data, function(index, value) {
       var square = $(getSquare(value.home, value.away, homeScores, awayScores));
