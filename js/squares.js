@@ -70,6 +70,24 @@ var populate = function() {
   return false;
 };
 
+var showAllNumbers = function() {
+  if($('#allNumbers').is(':checked')) {
+    $('#squares tbody td').each(function(i,v) {
+      if($(v).attr('data-outcome')) {
+        $(v).html($(v).attr('data-outcome'));
+      }
+    });
+  } else {
+    $('#squares tbody td').each(function(i,v) {
+      if($(v).attr('data-outcome')) {
+        $(v).empty();
+      }
+    });
+
+  }
+}
+
 $(function() {
   $('#theButton').click(populate);
+  $('#allNumbers').click(showAllNumbers);
 });
