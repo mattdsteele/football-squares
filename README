@@ -9,3 +9,7 @@ Select between arbitrary datasets:
 
 Upcoming:
  - Team vs Team games
+
+BUG LIST
+Refreshing the dataset doesn't refresh the numbers if the checkbox is enabled
+Highlighting numbers disappears values if the checkbox is enabled
