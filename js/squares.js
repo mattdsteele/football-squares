@@ -61,7 +61,7 @@ var squares = function() {
   };
 
   return {
-    populate : function() {
+    populate : function(e) {
       clearAllData();
       var awayScores = validate('thead td input');
       var homeScores = validate('tbody td input');
@@ -75,7 +75,7 @@ var squares = function() {
           makeBackground(square, value.outcome, stats);
         });
       });
-      return false;
+      e.preventDefault();
     },
     showAllNumbers : function() {
       if($('#allNumbers').is(':checked')) {
