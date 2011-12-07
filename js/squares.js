@@ -1,4 +1,5 @@
 var squares = (function($) {
+  // shouldn't be using a jQuery method here, if this is solely operating on arrays (not elements)
   $.fn.compare = function(t) {
     if (this.length != t.length) { return false; }
     var a = this.sort(), b = t.sort();
@@ -11,7 +12,7 @@ var squares = (function($) {
   };
 
   function arrayIndexOf(val, arr) {
-    for (var i=0; i < arr.length; i++) {
+    for (var i=0, j = arr.length; i < j; i++) {
       if (arr[i] == val) { return i; }
     }
     return -1;
@@ -21,6 +22,7 @@ var squares = (function($) {
     var row = arrayIndexOf(away, awayScores),
         column = arrayIndexOf(home, homeScores);
 
+    // cache this selector so it only runs once.
     return $('table tbody td')[(column * 11) + (row + 1)];
   }
 
@@ -33,7 +35,9 @@ var squares = (function($) {
         .mouseover(function() {
             $(this).html($(this).attr('data-outcome'));
         })
-        .mouseleave(function() { $(this).empty(); });
+        .mouseleave(function() {
+            $(this).empty();
+        });
   }
 
   function getMinAndMax(data) {
@@ -47,6 +51,7 @@ var squares = (function($) {
         diff = (max - min) / deltas;
     return {"min" : min, "max" : max, "diff" : diff, "deltas" : deltas};
   }
+
   function validate(selector) {
     var numbers = [];
     $(selector).each(function(i,j) { numbers.push($(j).val()); });
@@ -55,22 +60,29 @@ var squares = (function($) {
       return false;
     }
     return numbers;
-  };
+  }
+
   function clearAllData() {
+    // scope this selector
     $('table td[data-outcome]').css('background-color','').attr('data-outcome','');
-  };
+  }
 
   return {
     populate : function(e) {
       clearAllData();
+      // should these selectors be cached (or scoped to a specific table?)
       var awayScores = validate('thead td input'),
           homeScores = validate('tbody td input');
-      if (!(awayScores && homeScores)) { return false; }
+      if (!(awayScores && homeScores)) {
+          return false;
+      }
 
+      // cache this jQuery object
       var dataset=$('#dataset').val();
       $.get('/' + dataset + '.json', function(data) {
         var stats = getMinAndMax(data);
         $.each(data, function(index, value) {
+          // I usually prefix my jQuery object vars with a $ by convention.
           var square = $(getSquare(value.home, value.away, homeScores, awayScores));
           makeBackground(square, value.outcome, stats);
         });
@@ -78,14 +90,17 @@ var squares = (function($) {
       e.preventDefault();
     },
     showAllNumbers : function() {
+      // can all of these jQuery selectors be cached?
       if($('#allNumbers').is(':checked')) {
         $('#squares tbody td').each(function(i,v) {
+          // Don't call $(v) twice, store into a var.
           if($(v).attr('data-outcome')) {
             $(v).html($(v).attr('data-outcome'));
           }
         });
       } else {
         $('#squares tbody td').each(function(i,v) {
+          // Don't call $(v) twice, store into a var.
           if($(v).attr('data-outcome')) {
             $(v).empty();
           }
