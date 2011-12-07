@@ -1,8 +1,8 @@
-var squares = function() {
-  jQuery.fn.compare = function(t) {
+var squares = (function($) {
+  $.fn.compare = function(t) {
     if (this.length != t.length) { return false; }
     var a = this.sort(), b = t.sort();
-    for (var i = 0; i < t.length; i++) {
+    for (var i = 0, j = t.length; i < j; i++) {
       if (a[i] != b[i]) { 
         return false;
       }
@@ -10,44 +10,44 @@ var squares = function() {
     return true;
   };
 
-  var arrayIndexOf = function(val, arr) {
+  function arrayIndexOf(val, arr) {
     for (var i=0; i < arr.length; i++) {
       if (arr[i] == val) { return i; }
     }
     return -1;
-  };
+  }
 
-  var getSquare = function (home, away, homeScores, awayScores) {
-    var row = arrayIndexOf(away, awayScores);
-    var column = arrayIndexOf(home, homeScores);
+  function getSquare(home, away, homeScores, awayScores) {
+    var row = arrayIndexOf(away, awayScores),
+        column = arrayIndexOf(home, homeScores);
 
     return $('table tbody td')[(column * 11) + (row + 1)];
-  };
+  }
 
   var colors = ["CCFFFF", "52FFFF", "BF00FF", "FF00BF", "FF0040", "FF4000"];
 
-  var makeBackground = function(square, outcome, stats) {
+  function makeBackground(square, outcome, stats) {
     var index = Math.round((outcome - stats.min) / stats.max * (colors.length - 1));
-    square.css('background-color', "#" + colors[index]);
-    square.attr('data-outcome', outcome);
-    square.mouseover(function() {
-      $(this).html($(this).attr('data-outcome'));
-    });
-    square.mouseleave(function() { $(this).empty(); });
-  };
+    square.css('background-color', "#" + colors[index])
+        .attr('data-outcome', outcome)
+        .mouseover(function() {
+            $(this).html($(this).attr('data-outcome'));
+        })
+        .mouseleave(function() { $(this).empty(); });
+  }
 
-  var getMinAndMax = function(data) {
-    var min = Number.MAX_VALUE;
-    var max = 0;
+  function getMinAndMax(data) {
+    var min = Number.MAX_VALUE,
+        max = 0;
     $.each(data, function(i, v) {
       if (v.outcome < min) { min = v.outcome; }
       if (v.outcome > max) { max = v.outcome; }
     });
-    var deltas = 6;
-    var diff = (max - min) / deltas;
+    var deltas = 6,
+        diff = (max - min) / deltas;
     return {"min" : min, "max" : max, "diff" : diff, "deltas" : deltas};
-  };
-  var validate = function(selector) {
+  }
+  function validate(selector) {
     var numbers = [];
     $(selector).each(function(i,j) { numbers.push($(j).val()); });
     if (!$(numbers).compare([1,2,3,4,5,6,7,8,9,0])) {
@@ -56,15 +56,15 @@ var squares = function() {
     }
     return numbers;
   };
-  var clearAllData = function() {
+  function clearAllData() {
     $('table td[data-outcome]').css('background-color','').attr('data-outcome','');
   };
 
   return {
     populate : function(e) {
       clearAllData();
-      var awayScores = validate('thead td input');
-      var homeScores = validate('tbody td input');
+      var awayScores = validate('thead td input'),
+          homeScores = validate('tbody td input');
       if (!(awayScores && homeScores)) { return false; }
 
       var dataset=$('#dataset').val();
@@ -93,9 +93,9 @@ var squares = function() {
       }
     }
   };
-}();
+})(jQuery);
 
-$(function() {
+jQuery(function() {
   $('#theButton').click(squares.populate);
   $('#allNumbers').click(squares.showAllNumbers);
 });
