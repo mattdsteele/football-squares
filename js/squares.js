@@ -96,6 +96,7 @@ var squares = function() {
 }();
 
 $(function() {
-  $('#theButton').click(squares.populate);
+  $('#dataset').change(squares.populate);
   $('#allNumbers').click(squares.showAllNumbers);
+  $('.bigtext').bigtext();
 });
