@@ -3,13 +3,11 @@ let squares = {
     <div id="container">
       <form id="squares-form">
         <span id="allNumbersCheck"><input type="checkbox" id="allNumbers"><label for="allNumbers">Show all numbers</label></span>
-        <select id="dataset">
-          <option>Dataset</option>
-          <option value="scores">All games</option>
-          <option value="superbowl">Super Bowl games</option>
-          <option value="quarter1">Quarter 1</option>
-          <option value="quarter2">Quarter 2</option>
-          <option value="quarter3">Quarter 3</option>
+        <select id="dataset"
+          ng-options="option as option.name for option in superbowlSquares.datasets"
+          ng-model="superbowlSquares.dataset"
+          ng-change="superbowlSquares.updateDataset()">
+          <option value="">Dataset</option>
         </select>
         <table id="squares">
           <thead>
@@ -43,6 +41,13 @@ let squares = {
     </div>
   `,
   controller: function() {
+    let superbowlSquares = this;
+    superbowlSquares.datasets = [
+      { id: 'quarter1', name: 'Quarter 1' },
+      { id: 'quarter2', name: 'Quarter 2' },
+      { id: 'quarter3', name: 'Quarter 3' },
+      { id: 'superbowl', name: 'Super Bowl' },
+    ];
     let squares = (function($) {
       // shouldn't be using a jQuery method here, if this is solely operating on arrays (not elements)
       $.fn.compare = function(t) {
@@ -113,7 +118,7 @@ let squares = {
       }
 
       return {
-        populate : function(e) {
+        populate : function() {
           clearAllData();
           // should these selectors be cached (or scoped to a specific table?)
           var awayScores = validate('thead td input'),
@@ -123,7 +128,7 @@ let squares = {
           }
 
           // cache this jQuery object
-          var dataset=$('#dataset').val();
+          var dataset = superbowlSquares.dataset.id;
           $.get('/' + dataset + '.json', function(data) {
             var stats = getMinAndMax(data);
             $.each(data, function(index, value) {
@@ -132,7 +137,6 @@ let squares = {
               makeBackground(square, value.outcome, stats);
             });
           });
-          e.preventDefault();
         },
         showAllNumbers : function() {
           // can all of these jQuery selectors be cached?
@@ -156,9 +160,9 @@ let squares = {
     })($);
 
     $(function() {
-      $('#dataset').change(squares.populate);
       $('#allNumbers').click(squares.showAllNumbers);
     });
+    superbowlSquares.updateDataset = squares.populate;
   }
 };
 
