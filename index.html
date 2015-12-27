@@ -1,47 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="squares">
   <head>
-    <style type="text/css">
-      #header {
-        background: #ccc;
-        margin: 0px;
-        padding: 0px;
-      }
-      body {
-        margin: 0px;
-        padding: 0px;
-        background: #ddd;
-      }
-      * {
-        font-family: Helvetica, sans-serif;
-      }
-      h1 {
-        width: 30%;
-        margin: auto;
-      }
-      #container {
-        width: 470px;
-        margin: auto;
-      }
-      #squares { 
-        border-collapse: collapse;
-        clear: both;
-      }
-      #squares td {
-        border: 1px solid;
-        width: 40px; height: 40px;
-      }
-      #squares-form {
-        background: #fff;
-      }
-
-      #squares input {
-        width: 80%;
-      }
-      #allNumbersCheck { float: right; }
-      #dataset { float: left; }
-    </style>
     <script src="dist/bundle.js"></script>
+    <link href="app.css" rel="stylesheet" />
   </head>
   <body>
     <div id="header">
@@ -50,47 +11,8 @@
         <div>Squares</div>
       </h1>
     </div>
-    <div id="container">
-      <form id="squares-form">
-        <span id="allNumbersCheck"><input type="checkbox" id="allNumbers"><label for="allNumbers">Show all numbers</label></span>
-        <select id="dataset">
-          <option>Dataset</option>
-          <option value="scores">All games</option>
-          <option value="superbowl">Super Bowl games</option>
-          <option value="quarter1">Quarter 1</option>
-          <option value="quarter2">Quarter 2</option>
-          <option value="quarter3">Quarter 3</option>
-        </select>
-        <table id="squares">
-          <thead>
-            <tr><td></td>
-              <td><input id="away-0" value="0"/></td>
-              <td><input id="away-1" value="1"/></td>
-              <td><input id="away-2" value="2"/></td>
-              <td><input id="away-3" value="3"/></td>
-              <td><input id="away-4" value="4"/></td>
-              <td><input id="away-5" value="5"/></td>
-              <td><input id="away-6" value="6"/></td>
-              <td><input id="away-7" value="7"/></td>
-              <td><input id="away-8" value="8"/></td>
-              <td><input id="away-9" value="9"/></td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td><input id="home-0" value="0"/></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td><input id="home-1" value="1"/></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td><input id="home-2" value="2"/></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td><input id="home-3" value="3"/></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td><input id="home-4" value="4"/></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td><input id="home-5" value="5"/></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td><input id="home-6" value="6"/></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td><input id="home-7" value="7"/></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td><input id="home-8" value="8"/></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td><input id="home-9" value="9"/></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-          </tbody>
-        </table>
-      </form>
-    </div>
+    <superbowl-squares>
+    </superbowl-squares>
   </body>
 </html>
 

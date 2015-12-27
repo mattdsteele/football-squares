@@ -1,0 +1,38 @@
+#header {
+  background: #ccc;
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  background: #ddd;
+}
+* {
+  font-family: Helvetica, sans-serif;
+}
+h1 {
+  width: 30%;
+  margin: auto;
+}
+#container {
+  width: 470px;
+  margin: auto;
+}
+#squares { 
+  border-collapse: collapse;
+  clear: both;
+}
+#squares td {
+  border: 1px solid;
+  width: 40px; height: 40px;
+}
+#squares-form {
+  background: #fff;
+}
+
+#squares input {
+  width: 80%;
+}
+#allNumbersCheck { float: right; }
+#dataset { float: left; }

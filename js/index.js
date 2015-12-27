@@ -1,3 +1,3 @@
 import './header';
-import './squares';
+import './app';
 
