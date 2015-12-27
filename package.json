@@ -1,0 +1,24 @@
+{
+  "name": "football-squares",
+  "version": "1.0.0",
+  "description": "A super simple web app which displays a heat-map of the most likely squares to win in a game of Super Bowl Squares. http://www.superbowlsquares.org/how-to-play-football-squares.php",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattdsteele/football-squares.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattdsteele/football-squares/issues"
+  },
+  "homepage": "https://github.com/mattdsteele/football-squares#readme",
+  "dependencies": {
+    "bigtext": "^0.1.8",
+    "jquery": "^1.7.3"
+  }
+}
