@@ -1,3 +1,6 @@
+import 'jquery/tmp/jquery';
+import 'bigtext/dist/bigtext';
+
 var squares = (function($) {
   // shouldn't be using a jQuery method here, if this is solely operating on arrays (not elements)
   $.fn.compare = function(t) {
