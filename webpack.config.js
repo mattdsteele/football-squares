@@ -3,6 +3,7 @@ var webpack = require('webpack');
 module.exports = {
   context: `${__dirname}/js`,
   entry: './index',
+  devtool: 'source-map',
   output: {
     path: `${__dirname}/dist`,
     filename: `bundle.js`
@@ -17,7 +18,8 @@ module.exports = {
       $: 'jquery',
       jQuery: 'jquery',
       'window.jQuery': 'jquery'
-    })
+    }),
+    //new webpack.optimize.UglifyJsPlugin({})
   ],
   module: {
     loaders: [
