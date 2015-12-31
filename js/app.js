@@ -10,3 +10,5 @@ let app = angular.module('squares', [])
   .service('Data', Data)
   .component('squareCell', squareCell)
   .component('superbowlSquares', squares);
+
+export default app;
