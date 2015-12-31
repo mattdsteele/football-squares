@@ -45,3 +45,13 @@ square-cell > div {
   width: 100%;
   height: 100%;
 }
+
+.header {
+  text-align: center;
+}
+.header-1 {
+  font-size: 5.3vw;
+}
+.header-2 {
+  font-size: 7.5vw;
+}

@@ -9,16 +9,8 @@ module.exports = {
     filename: `bundle.js`
   },
   resolve: {
-    alias: {
-      jQuery: 'jquery'
-    }
   },
   plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery'
-    }),
     //new webpack.optimize.UglifyJsPlugin({})
   ],
   module: {
