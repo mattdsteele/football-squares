@@ -16,7 +16,7 @@ h1 {
   margin: auto;
 }
 #container {
-  width: 470px;
+  width: 440px;
   margin: auto;
 }
 #squares { 
@@ -25,6 +25,7 @@ h1 {
 }
 #squares td {
   border: 1px solid;
+  padding: 0;
 }
 #squares-form {
   background: #fff;
@@ -54,4 +55,23 @@ square-cell > div {
 }
 .header-2 {
   font-size: 7.5vw;
+}
+
+.priority-level-1 {
+  background-color: #cff;
+}
+.priority-level-2 {
+  background-color: #52ffff;
+}
+.priority-level-3 {
+  background-color: #bf00ff;
+}
+.priority-level-4 {
+  background-color: #ff00bf;
+}
+.priority-level-5 {
+  background-color: #ff0040;
+}
+.priority-level-6 {
+  background-color: #ff4000;
 }

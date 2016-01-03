@@ -1,6 +1,5 @@
 class SquareCellController {
-  constructor($scope, $element) {
-    this.colors = ["CCFFFF", "52FFFF", "BF00FF", "FF00BF", "FF0040", "FF4000"]
+  constructor($scope) {
     this.visible = this.alwaysVisible;
 
     //Hey, how do I not $watch these? I am dumb.
@@ -9,7 +8,7 @@ class SquareCellController {
         this.percentage = this.dataset
           .filter(i => i.home === this.home && i.away === this.away)
           .map(i => i.outcome)[0];
-          this.makeBackground($element, this.percentage, this.stats);
+          this.makeBackground(this.percentage, this.stats);
       }
     });
     $scope.$watch('squareCell.alwaysVisible', newVal => {
@@ -19,7 +18,6 @@ class SquareCellController {
         this.hide();
       }
     });
-
   }
   show() {
     this.visible = true;
@@ -31,15 +29,16 @@ class SquareCellController {
     return this.visible ? this.percentage : '';
   }
 
-  makeBackground($element, outcome, stats) {
-    var index = Math.round((outcome - stats.min) / stats.max * (this.colors.length - 1));
-    $element.css('background-color', `#${this.colors[index]}`);
+  makeBackground(outcome, stats) {
+    var index = Math.round((outcome - stats.min) / stats.max * (5));
+    this.priorityLevel = `priority-level-${index + 1}`;
   }
 }
 
 let squareCell = {
   template: `<div ng-mouseenter="squareCell.show()" 
               ng-mouseleave="squareCell.hide()"
+              ng-class="squareCell.priorityLevel"
               ng-bind="squareCell.visibleOrPercentage()">
             </div>`,
   bindings: {
