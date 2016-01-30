@@ -2,6 +2,8 @@ import angular from 'angular';
 
 import Datasets from './datasets';
 import Data from './data';
+
+import SuperbowlApp from './superbowl-app';
 import squares from './squares';
 import squareCell from './square-cell';
 
@@ -12,6 +14,7 @@ upgradeAdapter.addProvider(Data);
 let app = angular.module('squares', [])
   .factory('Data', upgradeAdapter.downgradeNg2Provider(Data))
   .factory('Datasets', upgradeAdapter.downgradeNg2Provider(Datasets))
+  .component('superbowlApp', SuperbowlApp)
   .component('squareCell', squareCell)
   .component('superbowlSquares', squares);
 
