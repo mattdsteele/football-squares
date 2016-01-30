@@ -1,19 +1,16 @@
-import angular from 'angular';
+import { Component } from 'angular2/core';
 
-let header = angular.module('header', [])
-.component('superbowlHeader', {
-  transclude: {
-    'lede': 'lede',
-    'subhead': 'subhead'
-  },
+@Component({
+  selector: 'superbowl-header',
   template: `
     <div id="header">
       <h1>
-        <div class="header-1" ng-transclude="lede"></div>
-        <div class="header-2" ng-transclude="subhead"></div>
+        <ng-content select="header-lede"></ng-content>
+        <ng-content select="header-sub"></ng-content>
       </h1>
     </div>
   `
-});
+})
+class SuperbowlHeader { }
 
-export default header;
+export default SuperbowlHeader;
