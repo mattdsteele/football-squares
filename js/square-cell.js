@@ -48,7 +48,8 @@ let squareCell = {
     stats: '=',
     alwaysVisible: '='
   },
-  controller: SquareCellController
+  controller: SquareCellController,
+  controllerAs: 'squareCell'
 };
 
 export default squareCell;

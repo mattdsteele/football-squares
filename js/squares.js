@@ -64,7 +64,8 @@ let SquaresComponent = {
       </form>
     </div>
   `,
-  controller: SquaresController
+  controller: SquaresController,
+  controllerAs: 'superbowlSquares'
 };
 
 export default SquaresComponent;

@@ -8,5 +8,7 @@ import app from './app';
 angular.module('superbowl-squares', [header.name, app.name]);
 
 const upgradeAdapter = new UpgradeAdapter();
-upgradeAdapter.bootstrap(document.documentElement, ['superbowl-squares']);
+angular.element(document.body).ready(() => {
+  upgradeAdapter.bootstrap(document.body, ['superbowl-squares']);
+});
 
