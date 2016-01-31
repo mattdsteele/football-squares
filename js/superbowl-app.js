@@ -1,8 +1,7 @@
 import { Component } from 'angular2/core';
 import upgradeAdapter from './adapter';
 import SuperbowlHeader from './header';
-
-const SuperbowlSquares = upgradeAdapter.upgradeNg1Component('superbowlSquares');
+import SuperbowlSquares from './squares';
 
 @Component({
   selector: 'superbowl-app',

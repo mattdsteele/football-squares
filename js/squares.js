@@ -1,3 +1,9 @@
+import { Component } from 'angular2/core';
+import { Injectable } from 'angular2/core';
+
+import Data from './data';
+import Datasets from './datasets';
+
 let getMinAndMax = (data) => {
   let sortedData = data.map(x => x.outcome)
   .sort((a, b) => a - b);
@@ -7,23 +13,10 @@ let getMinAndMax = (data) => {
     return { min, max, diff, deltas };
 };
 
-class SquaresController {
-  constructor(Datasets, Data) {
-    this.datasets = Datasets.datasets;
-    this.Data = Data;
-    this.rows = [0,1,2,3,4,5,6,7,8,9];
-    this.columns = [0,1,2,3,4,5,6,7,8,9];
-  }
-
-  updateDataset() {
-    if (this.dataset) {
-      this.data = this.Data.get(this.dataset.id);
-      this.stats = getMinAndMax(this.data);
-    }
-  }
-}
-
-let SquaresComponent = {
+@Injectable()
+@Component({
+  selector: 'superbowl-squares',
+  providers: [Data, Datasets],
   template: `
     <div id="container">
       <form id="squares-form">
@@ -64,8 +57,21 @@ let SquaresComponent = {
       </form>
     </div>
   `,
-  controller: SquaresController,
-  controllerAs: 'superbowlSquares'
-};
+})
+class SuperbowlSquares {
+  constructor(datasets: Datasets, data: Data) {
+    this.datasets = datasets.datasets;
+    this.Data = data;
+    this.rows = [0,1,2,3,4,5,6,7,8,9];
+    this.columns = [0,1,2,3,4,5,6,7,8,9];
+  }
 
-export default SquaresComponent;
+  updateDataset() {
+    if (this.dataset) {
+      this.data = this.Data.get(this.dataset.id);
+      this.stats = getMinAndMax(this.data);
+    }
+  }
+}
+
+export default SuperbowlSquares;
