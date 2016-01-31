@@ -3,9 +3,9 @@ class SquareCellController {
     this.visible = this.alwaysVisible;
 
     //Hey, how do I not $watch these? I am dumb.
-    $scope.$watch('squareCell.dataset', newVal => {
+    $scope.$watch('squareCell.scoreData', newVal => {
       if (newVal) {
-        this.percentage = this.dataset
+        this.percentage = this.scoreData
           .filter(i => i.home === this.home && i.away === this.away)
           .map(i => i.outcome)[0];
           this.makeBackground(this.percentage, this.stats);
@@ -17,6 +17,9 @@ class SquareCellController {
       } else {
         this.hide();
       }
+    });
+    $scope.$watch('squareCell.testing', newVal => {
+      console.log(newVal);
     });
   }
   show() {
@@ -42,10 +45,11 @@ let squareCell = {
               ng-bind="squareCell.visibleOrPercentage()">
             </div>`,
   bindings: {
+    testing: '=',
     home: '=',
     away: '=',
-    dataset: '=',
     stats: '=',
+    scoreData: '=',
     alwaysVisible: '='
   },
   controller: SquareCellController,

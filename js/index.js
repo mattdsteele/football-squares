@@ -1,5 +1,7 @@
-import angular from 'angular';
 import 'reflect-metadata';
+import 'zone.js/lib/browser/zone-microtask';
+
+import angular from 'angular';
 import upgradeAdapter from './adapter.js';
 
 import app from './app';
