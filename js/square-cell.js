@@ -18,9 +18,6 @@ class SquareCellController {
         this.hide();
       }
     });
-    $scope.$watch('squareCell.testing', newVal => {
-      console.log(newVal);
-    });
   }
   show() {
     this.visible = true;
@@ -42,15 +39,15 @@ let squareCell = {
   template: `<div ng-mouseenter="squareCell.show()" 
               ng-mouseleave="squareCell.hide()"
               ng-class="squareCell.priorityLevel"
-              ng-bind="squareCell.visibleOrPercentage()">
-            </div>`,
+              ng-bind="squareCell.visibleOrPercentage()"
+  >`,
   bindings: {
-    testing: '=',
+    //Note: one-way bindings don't work with upgradeAdapter!
     home: '=',
     away: '=',
     stats: '=',
     scoreData: '=',
-    alwaysVisible: '='
+    alwaysVisible: '@'
   },
   controller: SquareCellController,
   controllerAs: 'squareCell'

@@ -13,8 +13,6 @@ import SuperbowlSquares from './squares';
 import squareCell from './square-cell';
 
 import upgradeAdapter from './adapter.js';
-upgradeAdapter.addProvider(Datasets);
-upgradeAdapter.addProvider(Data);
 
 let app = angular.module('squares', [])
   .directive('superbowlApp', upgradeAdapter.downgradeNg2Component(SuperbowlApp))

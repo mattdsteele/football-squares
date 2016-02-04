@@ -15,14 +15,11 @@ let getMinAndMax = (data) => {
 };
 
 const SquareCell = upgradeAdapater.upgradeNg1Component('squareCell');
-
 @Component({
   selector: 'superbowl-squares',
   providers: [Data, Datasets],
   directives: [FORM_DIRECTIVES, SquareCell],
   template: `
-    {{lolz}}<hr>
-    <input [(ngModel)]="lolz">
     <div id="container">
       <form id="squares-form">
         <span id="allNumbersCheck">
@@ -48,7 +45,6 @@ const SquareCell = upgradeAdapater.upgradeNg1Component('squareCell');
               <td><input id="home-{{i}}" type="number" [(ngModel)]="rows[row]" min="0" max="9"></td>
               <td *ngFor="#column of columns">
                 <square-cell 
-                  [testing]="allNumbers"
                   [scoreData]="data" 
                   [stats]="stats"
                   [home]="rows[row]" 
@@ -79,10 +75,6 @@ class SuperbowlSquares {
       this.data = this.Data.get(value);
       this.stats = getMinAndMax(this.data);
     }
-  }
-  showAllNumbers(value) {
-    console.log(value);
-    this.allNumbers = value;
   }
 }
 
