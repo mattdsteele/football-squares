@@ -3,7 +3,6 @@ import { FORM_DIRECTIVES } from 'angular2/common';
 
 import Data from './data';
 import Datasets from './datasets';
-import upgradeAdapater from './adapter';
 import SquareCell from './square-cell';
 
 let getMinAndMax = (data) => {

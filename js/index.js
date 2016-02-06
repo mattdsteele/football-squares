@@ -1,14 +1,9 @@
 import 'reflect-metadata';
 import 'zone.js/dist/zone-microtask';
 
-import angular from 'angular';
-import upgradeAdapter from './adapter.js';
+import { bootstrap } from 'angular2/platform/browser';
 
-import app from './app';
+import SuperbowlApp from './superbowl-app';
 
-angular.module('superbowl-squares', [app.name]);
-
-angular.element(document.body).ready(() => {
-  upgradeAdapter.bootstrap(document.body, ['superbowl-squares']);
-});
+bootstrap(SuperbowlApp);
 

@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/mattdsteele/football-squares#readme",
   "dependencies": {
-    "angular": "^1.5.0-rc.0",
     "angular2": "^2.0.0-beta.0",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.3",

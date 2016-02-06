@@ -1,5 +1,4 @@
 import { Component } from 'angular2/core';
-import upgradeAdapter from './adapter';
 import SuperbowlHeader from './header';
 import SuperbowlSquares from './squares';
 
