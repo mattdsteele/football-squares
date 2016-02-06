@@ -1,56 +1,56 @@
-class SquareCellController {
-  constructor($scope) {
-    this.visible = this.alwaysVisible;
+import { Component } from 'angular2/core';
+import { NgClass } from 'angular2/common';
 
-    //Hey, how do I not $watch these? I am dumb.
-    $scope.$watch('squareCell.scoreData', newVal => {
-      if (newVal) {
-        this.percentage = this.scoreData
-          .filter(i => i.home === this.home && i.away === this.away)
-          .map(i => i.outcome)[0];
-          this.makeBackground(this.percentage, this.stats);
-      }
-    });
-    $scope.$watch('squareCell.alwaysVisible', newVal => {
-      if (newVal) {
-        this.show();
-      } else {
-        this.hide();
-      }
-    });
+@Component({
+  selector: 'square-cell',
+  inputs: [
+    'alwaysVisible',
+    'home',
+    'away',
+    'stats',
+    'scoreData'
+  ],
+  directives: [NgClass],
+  template: `<div ng-mouseenter="show()" 
+              (mouseenter)="show()"
+              (mouseleave)="hide()"
+              [ngClass]="priorityLevel()"
+              ng-class="squareCell.priorityLevel">{{ visibleOrPercentage() }}
+            </div>`
+})
+class SquareCell {
+  currentlyVisible = false;
+
+  visible() {
+    return this.alwaysVisible || this.currentlyVisible;
   }
+
   show() {
-    this.visible = true;
-  }
-  hide() {
-    this.visible = this.alwaysVisible;
-  }
-  visibleOrPercentage() {
-    return this.visible ? this.percentage : '';
+    this.currentlyVisible = true;
   }
 
-  makeBackground(outcome, stats) {
-    var index = Math.round((outcome - stats.min) / stats.max * (5));
-    this.priorityLevel = `priority-level-${index + 1}`;
+  hide() {
+    this.currentlyVisible = false;
+  }
+
+  visibleOrPercentage() {
+    return this.visible() ? this.percentage() : '';
+  }
+
+  percentage() {
+    if (this.scoreData) {
+      return this.scoreData
+      .filter(i => i.home === this.home && i.away === this.away)
+      .map(i => i.outcome)[0];
+    }
+  }
+
+  priorityLevel() {
+    if (this.stats) {
+      var index = Math.round((this.percentage() - this.stats.min) / this.stats.max * (5));
+      return `priority-level-${index + 1}`;
+    }
   }
 }
 
-let squareCell = {
-  template: `<div ng-mouseenter="squareCell.show()" 
-              ng-mouseleave="squareCell.hide()"
-              ng-class="squareCell.priorityLevel"
-              ng-bind="squareCell.visibleOrPercentage()"
-  >`,
-  bindings: {
-    //Note: one-way bindings don't work with upgradeAdapter!
-    home: '=',
-    away: '=',
-    stats: '=',
-    scoreData: '=',
-    alwaysVisible: '@'
-  },
-  controller: SquareCellController,
-  controllerAs: 'squareCell'
-};
-
-export default squareCell;
+export default SquareCell;

@@ -17,7 +17,7 @@ import upgradeAdapter from './adapter.js';
 let app = angular.module('squares', [])
   .directive('superbowlApp', upgradeAdapter.downgradeNg2Component(SuperbowlApp))
   .directive('superbowlHeader', upgradeAdapter.downgradeNg2Component(SuperbowlHeader))
-  .component('squareCell', squareCell)
+  .directive('squareCell', upgradeAdapter.downgradeNg2Component(squareCell))
   .directive('superbowlSquares', upgradeAdapter.downgradeNg2Component(SuperbowlSquares));
 
 export default app;

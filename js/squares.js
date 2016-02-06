@@ -4,6 +4,7 @@ import { FORM_DIRECTIVES } from 'angular2/common';
 import Data from './data';
 import Datasets from './datasets';
 import upgradeAdapater from './adapter';
+import SquareCell from './square-cell';
 
 let getMinAndMax = (data) => {
   let sortedData = data.map(x => x.outcome)
@@ -14,7 +15,6 @@ let getMinAndMax = (data) => {
     return { min, max, diff, deltas };
 };
 
-const SquareCell = upgradeAdapater.upgradeNg1Component('squareCell');
 @Component({
   selector: 'superbowl-squares',
   providers: [Data, Datasets],
