@@ -71,7 +71,8 @@ class SuperbowlSquares {
 
   updateDataset(value) {
     if (value) {
-      this.data = this.Data.get(value);
+      const { id } = this.datasets.find(d => d.name === value);
+      this.data = this.Data.get(id);
       this.stats = getMinAndMax(this.data);
     }
   }
