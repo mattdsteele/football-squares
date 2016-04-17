@@ -15,6 +15,13 @@ gulp.task('copy', () => {
   gulp.src('src/**/*.css')
   .pipe(gulp.dest('dist'));
 });
+gulp.task('ci', ['build', 'testOnce']);
+gulp.task('testOnce', done => {
+  new Server({
+    singleRun: true,
+    configFile: `${__dirname}/karma.conf.js`
+  }, done).start();
+});
 gulp.task('test', done => {
   new Server({
     configFile: `${__dirname}/karma.conf.js`
