@@ -4,7 +4,7 @@
   "description": "A super simple web app which displays a heat-map of the most likely squares to win in a game of Super Bowl Squares. http://www.superbowlsquares.org/how-to-play-football-squares.php",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
