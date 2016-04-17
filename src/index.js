@@ -1,9 +1,12 @@
-import angular from 'angular';
-
 import header from './header';
 import app from './app';
+import upgradeAdapter from './adapter';
+
+import angular from 'angular';
+import 'reflect-metadata';
+import 'zone.js';
 
 angular.module('superbowl-squares', [header.name, app.name]);
 
-angular.bootstrap(document.documentElement, ['superbowl-squares']);
+upgradeAdapter.bootstrap(document.documentElement, ['superbowl-squares']);
 
