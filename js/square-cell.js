@@ -3,15 +3,15 @@ class SquareCellController {
     this.visible = this.alwaysVisible;
 
     //Hey, how do I not $watch these? I am dumb.
-    $scope.$watch('squareCell.dataset', newVal => {
+    $scope.$watch('$ctrl.dataset', newVal => {
       if (newVal) {
         this.percentage = this.dataset
           .filter(i => i.home === this.home && i.away === this.away)
           .map(i => i.outcome)[0];
-          this.makeBackground(this.percentage, this.stats);
+        this.makeBackground(this.percentage, this.stats);
       }
     });
-    $scope.$watch('squareCell.alwaysVisible', newVal => {
+    $scope.$watch('$ctrl.alwaysVisible', newVal => {
       if (newVal) {
         this.show();
       } else {
@@ -36,10 +36,10 @@ class SquareCellController {
 }
 
 let squareCell = {
-  template: `<div ng-mouseenter="squareCell.show()" 
-              ng-mouseleave="squareCell.hide()"
-              ng-class="squareCell.priorityLevel"
-              ng-bind="squareCell.visibleOrPercentage()">
+  template: `<div ng-mouseenter="$ctrl.show()" 
+              ng-mouseleave="$ctrl.hide()"
+              ng-class="$ctrl.priorityLevel"
+              ng-bind="$ctrl.visibleOrPercentage()">
             </div>`,
   bindings: {
     home: '=',
