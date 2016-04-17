@@ -7,7 +7,7 @@ import path from 'path';
 import { Server } from 'karma';
 
 gulp.task('default', ['build']);
-gulp.task('serve', ['copy', 'webpack-dev-server']);
+gulp.task('serve', ['copy', 'webpack-dev-server', 'test']);
 gulp.task('build', ['copy', 'webpack-build']);
 gulp.task('copy', () => {
   gulp.src('src/**/*.html')
