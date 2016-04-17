@@ -32,7 +32,7 @@ gulp.task('webpack-dev-server', callback => {
     path: path.resolve(`${__dirname}/dist`),
     contentBase: 'dist'
   })
-  .listen(8080, 'localhost', err => {
+  .listen(8080, '0.0.0.0', err => {
     gutil.log('[dev server]', 'http://localhost:8080/webpack-dev-server/index.html');
   });
 });
