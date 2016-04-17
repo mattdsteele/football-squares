@@ -1,4 +1,5 @@
 import './app';
+import superbowl from './data/superbowl.json';
 
 describe('square cell', () => {
   let squares, scope;
@@ -32,6 +33,15 @@ describe('square cell', () => {
       squares.alwaysVisible = false;
       squares.hide();
       expect(squares.visible).toBe(false);
+    });
+
+    it('sets a priority level class', () => {
+      squares.dataset = superbowl;
+      squares.stats = { min: 0, max: 12, diff: 2, deltas: 6 };
+      squares.home = 0;
+      squares.away = 3;
+      scope.$digest();
+      expect(squares.priorityLevel).toBe('priority-level-2');
     });
   });
 });

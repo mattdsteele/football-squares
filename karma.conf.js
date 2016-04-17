@@ -23,15 +23,7 @@ module.exports = function (config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: { 'spec.bundle.js': ['webpack'] },
 
-    webpack: {
-      devtool: 'inline-source-map',
-      module: {
-        loaders: [
-          { test: /\.js/, exclude: [/app\/lib/, /node_modules/], loader: 'babel' },
-          { test: /\.html/, loader: 'raw' }
-        ]
-      }
-    },
+    webpack: require('./webpack.config'),
 
     webpackServer: {
       noInfo: true // prevent console spamming when running in Karma!
