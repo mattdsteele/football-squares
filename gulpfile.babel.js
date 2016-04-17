@@ -36,7 +36,6 @@ gulp.task('webpack-build', callback => {
 
 gulp.task('webpack-dev-server', callback => {
   new WebpackDevServer(webpack(webpackConfig), {
-    path: path.resolve(`${__dirname}/dist`),
     contentBase: 'dist'
   })
   .listen(8080, '0.0.0.0', err => {

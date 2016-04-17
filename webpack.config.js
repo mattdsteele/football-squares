@@ -2,11 +2,14 @@ var webpack = require('webpack');
 
 module.exports = {
   context: `${__dirname}/src`,
-  entry: './index',
+  entry: {
+    'bundle.js': ['./index'],
+  },
   devtool: 'source-map',
   output: {
+    publicPath: '/',
     path: `${__dirname}/dist`,
-    filename: `bundle.js`
+    filename: 'bundle.js'
   },
   resolve: {
   },
