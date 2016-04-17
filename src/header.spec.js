@@ -1,6 +1,6 @@
 import './header';
 
-describe('square cell', () => {
+describe('header', () => {
   let el;
   beforeEach(() => {
     angular.mock.module('header');
