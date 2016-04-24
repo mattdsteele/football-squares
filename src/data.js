@@ -1,3 +1,5 @@
+import { Injectable } from 'angular2/core';
+
 import quarter1 from './data/quarter1.json';
 import quarter2 from './data/quarter2.json';
 import quarter3 from './data/quarter3.json';
@@ -12,6 +14,7 @@ let mappings = {
   scores
 };
 
+@Injectable()
 class Data {
   get(dataset) {
     return mappings[dataset];

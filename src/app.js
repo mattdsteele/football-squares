@@ -1,4 +1,5 @@
 import angular from 'angular';
+import upgradeAdapter from './adapter';
 
 import datasets from './datasets';
 import Data from './data';
