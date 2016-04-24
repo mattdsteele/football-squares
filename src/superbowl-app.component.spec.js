@@ -1,19 +1,25 @@
-import './app';
+import { it, describe, expect, injectAsync, TestComponentBuilder, beforeEachProviders } from 'angular2/testing';
 
-// See http://stackoverflow.com/q/36827715/27557 for details
+
+import SuperbowlApp from './superbowl-app.component';
+
+// Currently failing with a "Failed: No provider for $scope! (class0 -> $scope)" error
+// StackOverflow, angular/angular doesn't show much.
+// Probably can only re-enable tests when everything is in ng2
 xdescribe('app', () => {
   let el;
-  beforeEach(() => {
-    angular.mock.module('squares');
-  });
-  beforeEach(inject(($compile, $rootScope) => {
-    el = $compile(`<superbowl-app></superbowl-app>`)($rootScope.$new());
-  }));
-  it('sets the header', () => {
-    expect(el[0].querySelector('superbowl-header')).toBeDefined();
-  });
 
-  it('sets the squares', () => {
-    expect(el[0].querySelector('superbowl-squares')).toBeDefined();
-  });
+  it('sets the header', injectAsync([TestComponentBuilder], tcb => {
+    return tcb.createAsync(SuperbowlApp).then(fixture => {
+      const el = fixture.nativeElement;
+      expect(el.querySelector('superbowl-header')).toBeDefined();
+    });
+  }));
+
+  it('sets the squares', injectAsync([TestComponentBuilder], tcb => {
+    return tcb.createAsync(SuperbowlApp).then(fixture => {
+      const el = fixture.nativeElement;
+      expect(el.querySelector('superbowl-squares')).toBeDefined();
+    });
+  }));
 });
