@@ -6,9 +6,11 @@ import Data from './data';
 import squares from './squares';
 import squareCell from './square-cell';
 
+upgradeAdapter.addProvider(Data);
+
 const app = angular.module('squares', [])
   .service('Datasets', datasets)
-  .service('Data', Data)
+  .factory('Data', upgradeAdapter.downgradeNg2Provider(Data))
   .component('squareCell', squareCell)
   .component('superbowlSquares', squares);
 
