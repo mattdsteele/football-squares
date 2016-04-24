@@ -47,13 +47,14 @@ square-cell > div {
   height: 100%;
 }
 
-.header {
+header-lede {
   text-align: center;
-}
-.header-1 {
+  display: block;
   font-size: 5.3vw;
 }
-.header-2 {
+header-subhead {
+  text-align: center;
+  display: block;
   font-size: 7.5vw;
 }
 

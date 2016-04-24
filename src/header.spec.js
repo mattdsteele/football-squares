@@ -1,21 +1,35 @@
-import './header';
+import Header from './header';
+
+import { Component } from 'angular2/core';
+
+// We have to create a test component so we can transclude/project data into it
+// See http://stackoverflow.com/q/36464992/27557
+@Component({
+  directives: [Header],
+  template: `
+              <superbowl-header>
+                <header-lede>A sample lede</header-lede>
+                <header-subhead>A sub header</header-subhead>
+              </superbowl-header>
+            `
+})
+class TestHeader {
+}
+
+import { it, describe, expect, injectAsync, TestComponentBuilder, beforeEachProviders } from 'angular2/testing';
 
 describe('header', () => {
   let el;
-  beforeEach(() => {
-    angular.mock.module('header');
-  });
-  beforeEach(inject(($compile, $rootScope) => {
-    el = $compile(`<superbowl-header>
-                    <lede>A sample lede</lede>
-                    <subhead>A sub header</subhead>
-                  </superbowl-header>`)($rootScope.$new());
+  it('sets the lede', injectAsync([TestComponentBuilder], tcb => {
+    return tcb.createAsync(TestHeader).then(fixture => {
+      const el = fixture.nativeElement;
+      expect(el.querySelector('header-lede').textContent).toBe('A sample lede');
+    });
   }));
-  it('sets the lede', () => {
-    expect(el[0].querySelector('.header-1').textContent).toBe('A sample lede');
-  });
 
-  it('sets the subhead', () => {
-    expect(el[0].querySelector('.header-2').textContent).toBe('A sub header');
-  });
+  it('sets the subhead', injectAsync([TestComponentBuilder], tcb => {
+    return tcb.createAsync(TestHeader).then(fixture => {
+      expect(fixture.nativeElement.querySelector('header-subhead').textContent).toBe('A sub header');
+    });
+  }));
 });

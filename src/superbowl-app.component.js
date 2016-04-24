@@ -4,8 +4,8 @@ class SuperbowlAppController {
 export default {
   template: `
     <superbowl-header>
-      <lede>Super Bowl</lede>
-      <subhead>Squares</subhead>
+      <header-lede>Super Bowl</header-lede>
+      <header-subhead>Squares</header-subhead>
     </superbowl-header>
     <superbowl-squares></superbowl-squares>
   `,
