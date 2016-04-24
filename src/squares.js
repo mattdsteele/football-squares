@@ -51,11 +51,11 @@ let SquaresComponent = {
               <td><input id="home-{{$index}}" type="number" ng-model="$ctrl.rows[row]" min="0" max="9"></td>
               <td ng-repeat="column in [0,1,2,3,4,5,6,7,8,9] track by $index">
                 <square-cell 
-                  dataset="$ctrl.data" 
-                  stats="$ctrl.stats"
-                  home="$ctrl.rows[row]" 
-                  away="$ctrl.columns[column]"
-                  always-visible="$ctrl.allNumbers">
+                  [score-data]="$ctrl.data"
+                  [stats]="$ctrl.stats"
+                  [home]="$ctrl.rows[row]"
+                  [away]="$ctrl.columns[column]"
+                  [always-visible]="$ctrl.allNumbers">
                 </square-cell>
               </td>
             </tr>

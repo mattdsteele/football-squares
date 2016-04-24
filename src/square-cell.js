@@ -1,54 +1,53 @@
-class SquareCellController {
-  constructor($scope) {
-    this.visible = this.alwaysVisible;
+import { Component } from 'angular2/core';
+import { NgClass } from 'angular2/common';
 
-    //Hey, how do I not $watch these? I am dumb.
-    $scope.$watch('$ctrl.dataset', newVal => {
-      if (newVal) {
-        this.percentage = this.dataset
-          .filter(i => i.home === this.home && i.away === this.away)
-          .map(i => i.outcome)[0];
-        this.makeBackground(this.percentage, this.stats);
-      }
-    });
-    $scope.$watch('$ctrl.alwaysVisible', newVal => {
-      if (newVal) {
-        this.show();
-      } else {
-        this.hide();
-      }
-    });
+@Component({
+  selector: 'square-cell',
+  inputs: [
+    'alwaysVisible',
+    'home',
+    'away',
+    'stats',
+    'scoreData'
+  ],
+  directives: [NgClass],
+  template: `
+            <div (mouseenter)="show()" (mouseleave)="hide()" [ngClass]="priorityLevel()">
+              {{visibleOrPercentage()}}
+            </div>`
+})
+class SquareCell {
+  currentlyVisible = false;
+  constructor() {
   }
   show() {
-    this.visible = true;
+    this.currentlyVisible = true;
   }
   hide() {
-    this.visible = this.alwaysVisible;
-  }
-  visibleOrPercentage() {
-    return this.visible ? this.percentage : '';
+    this.currentlyVisible = false;
   }
 
-  makeBackground(outcome, stats) {
-    var index = Math.round((outcome - stats.min) / stats.max * (5));
-    this.priorityLevel = `priority-level-${index + 1}`;
+  visible() {
+    return this.alwaysVisible || this.currentlyVisible;
+  }
+
+  percentage() {
+    if (this.scoreData) {
+      return this.scoreData.filter(i => i.home === this.home && i.away === this.away)
+      .map(i => i.outcome)[0];
+    }
+  }
+
+  visibleOrPercentage() {
+    return this.visible() ? this.percentage() : '';
+  }
+
+  priorityLevel() {
+    if (this.stats) {
+      var index = Math.round((this.percentage() - this.stats.min) / this.stats.max * (5));
+      return `priority-level-${index + 1}`;
+    }
   }
 }
 
-let squareCell = {
-  template: `<div ng-mouseenter="$ctrl.show()" 
-              ng-mouseleave="$ctrl.hide()"
-              ng-class="$ctrl.priorityLevel"
-              ng-bind="$ctrl.visibleOrPercentage()">
-            </div>`,
-  bindings: {
-    home: '=',
-    away: '=',
-    dataset: '=',
-    stats: '=',
-    alwaysVisible: '='
-  },
-  controller: SquareCellController
-};
-
-export default squareCell;
+export default SquareCell;
