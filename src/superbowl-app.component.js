@@ -1,12 +1,11 @@
 import { Component } from 'angular2/core';
-import upgradeAdapter from './adapter';
 
+import Squares from './squares';
 import Header from './header';
-const SuperbowlSquares = upgradeAdapter.upgradeNg1Component('superbowlSquares');
 
 @Component({
   selector: 'superbowl-app',
-  directives: [Header, SuperbowlSquares],
+  directives: [Header, Squares],
   template: `
     <superbowl-header>
       <header-lede>Super Bowl</header-lede>
