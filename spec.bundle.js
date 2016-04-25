@@ -1,11 +1,7 @@
-import 'angular';
-import 'angular-mocks';
-
 import 'es6-shim';
 import 'reflect-metadata';
 import 'zone.js';
 
-// This is not working! See http://stackoverflow.com/q/36827715/27557
 import 'angular2/src/core/di';
 import test from 'angular2/testing';
 import browser from 'angular2/platform/testing/browser';

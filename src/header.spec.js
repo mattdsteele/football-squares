@@ -2,7 +2,7 @@ import Header from './header';
 
 import { Component } from 'angular2/core';
 
-// We have to create a test component so we can transclude/project data into it
+// We create a test component so we can transclude/project data into it
 // See http://stackoverflow.com/q/36464992/27557
 @Component({
   directives: [Header],

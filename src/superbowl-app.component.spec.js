@@ -3,10 +3,7 @@ import { it, describe, expect, injectAsync, TestComponentBuilder, beforeEachProv
 
 import SuperbowlApp from './superbowl-app.component';
 
-// Currently failing with a "Failed: No provider for $scope! (class0 -> $scope)" error
-// StackOverflow, angular/angular doesn't show much.
-// Probably can only re-enable tests when everything is in ng2
-xdescribe('app', () => {
+describe('app', () => {
   let el;
 
   it('sets the header', injectAsync([TestComponentBuilder], tcb => {
