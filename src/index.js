@@ -1,9 +1,9 @@
-import angular from 'angular';
+import 'reflect-metadata';
+import 'zone.js';
 
-import header from './header';
-import app from './app';
+import { bootstrap } from 'angular2/platform/browser';
 
-angular.module('superbowl-squares', [header.name, app.name]);
+import SuperbowlAppComponent from './superbowl-squares/superbowl-app.component';
 
-angular.bootstrap(document.documentElement, ['superbowl-squares']);
+bootstrap(SuperbowlAppComponent);
 

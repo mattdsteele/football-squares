@@ -1,13 +1,10 @@
-import './app';
+import Data from './data.service';
 
 describe('square cell', () => {
   let data;
   beforeEach(() => {
-    angular.mock.module('squares');
+    data = new Data();
   });
-  beforeEach(inject((Data) => {
-    data = Data;
-  }));
   it('provides data', () => {
     const q1 = data.get('quarter1');
     expect(q1).toEqual(jasmine.any(Array));

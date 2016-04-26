@@ -1,2 +1,0 @@
-# Converts a csv into the json we need. Format: home,away,outcome
-sed "s/^\([[:digit:]]\),\([[:digit:]]\),\(.*\)/{\"home\":\1,\"away\":\2,\"outcome\":\3},/g"

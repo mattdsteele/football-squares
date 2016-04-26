@@ -1,14 +1,10 @@
-import './app';
+import Datasets from './datasets.service';
 
 describe('datasets', () => {
   let datasets;
   beforeEach(() => {
-    angular.mock.module('squares');
+    datasets = new Datasets();
   });
-
-  beforeEach(inject((Datasets) => {
-    datasets = Datasets;
-  }));
 
   it('has a datasets object', () => {
     expect(datasets.datasets).toEqual(jasmine.any(Array));
