@@ -16,20 +16,20 @@ import { Component } from 'angular2/core';
 class TestHeader {
 }
 
-import { it, describe, expect, injectAsync, TestComponentBuilder, beforeEachProviders } from 'angular2/testing';
+import { it, describe, expect, inject, async, TestComponentBuilder, beforeEachProviders } from 'angular2/testing';
 
 describe('header', () => {
   let el;
-  it('sets the lede', injectAsync([TestComponentBuilder], tcb => {
-    return tcb.createAsync(TestHeader).then(fixture => {
+  it('sets the lede', async(inject([TestComponentBuilder], tcb => {
+    tcb.createAsync(TestHeader).then(fixture => {
       const el = fixture.nativeElement;
       expect(el.querySelector('header-lede').textContent).toBe('A sample lede');
     });
-  }));
+  })));
 
-  it('sets the subhead', injectAsync([TestComponentBuilder], tcb => {
-    return tcb.createAsync(TestHeader).then(fixture => {
+  it('sets the subhead', async(inject([TestComponentBuilder], tcb => {
+    tcb.createAsync(TestHeader).then(fixture => {
       expect(fixture.nativeElement.querySelector('header-subhead').textContent).toBe('A sub header');
     });
-  }));
+  })));
 });

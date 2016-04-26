@@ -2,6 +2,7 @@ import 'es6-shim';
 import 'reflect-metadata';
 import 'zone.js';
 
+import 'zone.js/dist/async-test';
 import 'angular2/src/core/di';
 import test from 'angular2/testing';
 import browser from 'angular2/platform/testing/browser';

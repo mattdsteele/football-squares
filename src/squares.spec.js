@@ -1,16 +1,16 @@
-import { beforeEach, fit, fdescribe, it, describe, expect, injectAsync, TestComponentBuilder, beforeEachProviders } from 'angular2/testing';
+import { beforeEach, fit, fdescribe, it, describe, expect, inject, async, TestComponentBuilder, beforeEachProviders } from 'angular2/testing';
 
 import Squares from './squares';
 
 describe('squares', () => {
   let squares, fixture;
 
-  beforeEach(injectAsync([TestComponentBuilder], tcb => {
-    return tcb.createAsync(Squares).then(fx => {
+  beforeEach(async(inject([TestComponentBuilder], tcb => {
+    tcb.createAsync(Squares).then(fx => {
       fixture = fx;
       squares = fixture.componentInstance;
     });
-  }));
+  })));
 
   describe('controller', () => {
 

@@ -1,4 +1,4 @@
-import { beforeEach, fit, fdescribe, it, describe, expect, injectAsync, TestComponentBuilder, beforeEachProviders } from 'angular2/testing';
+import { beforeEach, fit, fdescribe, async, it, describe, expect, inject, TestComponentBuilder, beforeEachProviders } from 'angular2/testing';
 
 import SquareCell from './square-cell';
 import superbowl from './data/superbowl.json';
@@ -6,12 +6,12 @@ import superbowl from './data/superbowl.json';
 describe('square cell', () => {
   let squares, fixture;
 
-  beforeEach(injectAsync([TestComponentBuilder], tcb => {
-    return tcb.createAsync(SquareCell).then(fx => {
+  beforeEach(async(inject([TestComponentBuilder], tcb => {
+    tcb.createAsync(SquareCell).then(fx => {
       fixture = fx;
       squares = fixture.componentInstance;
     });
-  }));
+  })));
 
   describe('controller', () => {
     
