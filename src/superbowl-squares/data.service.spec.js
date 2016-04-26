@@ -1,4 +1,4 @@
-import Data from './data';
+import Data from './data.service';
 
 describe('square cell', () => {
   let data;

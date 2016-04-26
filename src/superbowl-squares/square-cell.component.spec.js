@@ -1,6 +1,6 @@
 import { beforeEach, fit, fdescribe, async, it, describe, expect, inject, TestComponentBuilder, beforeEachProviders } from 'angular2/testing';
 
-import SquareCell from './square-cell';
+import SquareCell from './square-cell.component';
 import superbowl from './data/superbowl.json';
 
 describe('square cell', () => {

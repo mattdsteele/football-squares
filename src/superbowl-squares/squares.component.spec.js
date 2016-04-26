@@ -1,6 +1,6 @@
 import { beforeEach, fit, fdescribe, it, describe, expect, inject, async, TestComponentBuilder, beforeEachProviders } from 'angular2/testing';
 
-import Squares from './squares';
+import Squares from './squares.component';
 
 describe('squares', () => {
   let squares, fixture;

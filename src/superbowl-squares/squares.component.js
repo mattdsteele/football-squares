@@ -1,9 +1,9 @@
 import { Component } from 'angular2/core';
 import { FORM_DIRECTIVES } from 'angular2/common';
 
-import Data from './data';
-import Datasets from './datasets';
-import SquareCell from './square-cell';
+import Data from './data.service';
+import Datasets from './datasets.service';
+import SquareCell from './square-cell.component';
 
 let getMinAndMax = (data) => {
   let sortedData = data.map(x => x.outcome)

@@ -1,4 +1,4 @@
-import Datasets from './datasets';
+import Datasets from './datasets.service';
 
 describe('datasets', () => {
   let datasets;

@@ -1,7 +1,7 @@
 import { Component } from 'angular2/core';
 
-import Squares from './squares';
-import Header from './header';
+import Squares from './squares.component';
+import Header from './header.component';
 
 @Component({
   selector: 'superbowl-app',

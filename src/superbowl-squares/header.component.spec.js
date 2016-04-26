@@ -1,4 +1,4 @@
-import Header from './header';
+import Header from './header.component';
 
 import { Component } from 'angular2/core';
 
