@@ -4,11 +4,7 @@ import { Score } from "../scores.service";
 @Component({
   selector: "app-square-cell",
   templateUrl: "./square-cell.component.html",
-  styleUrls: ["./square-cell.component.css"],
-  template: `
-            <div (mouseenter)="show()" (mouseleave)="hide()" [ngClass]="priorityLevel()">
-              {{visibleOrPercentage()}}
-            </div>`
+  styleUrls: ["./square-cell.component.css"]
 })
 export class SquareCell {
   @Input() alwaysVisible: boolean;

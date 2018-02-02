@@ -1,0 +1,27 @@
+:host {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+div {
+  width: 100%;
+  height: 100%;
+}
+.priority-level-1 {
+  background-color: #cff;
+}
+.priority-level-2 {
+  background-color: #52ffff;
+}
+.priority-level-3 {
+  background-color: #bf00ff;
+}
+.priority-level-4 {
+  background-color: #ff00bf;
+}
+.priority-level-5 {
+  background-color: #ff0040;
+}
+.priority-level-6 {
+  background-color: #ff4000;
+}

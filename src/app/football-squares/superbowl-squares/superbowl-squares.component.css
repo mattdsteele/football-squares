@@ -1,0 +1,25 @@
+#container {
+  width: 440px;
+  margin: auto;
+}
+#squares {
+  border-collapse: collapse;
+  clear: both;
+}
+#squares td {
+  border: 1px solid;
+  padding: 0;
+}
+#squares-form {
+  background: #fff;
+}
+
+#squares input {
+  width: 80%;
+}
+#allNumbersCheck {
+  float: right;
+}
+#dataset {
+  float: left;
+}
