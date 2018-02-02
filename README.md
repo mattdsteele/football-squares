@@ -1,18 +1,27 @@
-# Super Bowl Squares
+# Squares
 
-A super simple web app which displays a heat-map of the most likely squares to win in a game of Super Bowl Squares.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.7.
 
-How do you play Squares?  http://www.superbowlsquares.org/how-to-play-football-squares.php
+## Development server
 
-# Angular Test App
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-This app is also my playground for messing with Angular features. Lately I've:
+## Code scaffolding
 
-## [Migrate jQuery app to Webpack](https://github.com/mattdsteele/football-squares/compare/jquery...cc6e072607b9d64d4a25fb8e4f0a8023c5dd0bfc)
-## [Migrate to Angular 1](https://github.com/mattdsteele/football-squares/compare/cc6e072607b9d64d4a25fb8e4f0a8023c5dd0bfc...ba8dec690570b8e41388ef7817ace1b240ef1136)
-## [Componentize Angular 1](https://github.com/mattdsteele/football-squares/compare/227b72824ba01b264c1e11b5033551f2cd91db44...da2acc5ee9f5053a2ae41e210193b3113c8ac919)
-## [Migrate to Angular 2](https://github.com/mattdsteele/football-squares/pull/3)
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-For details on the Angular 2 upgrade, see my [ng-nebraska talk][ngneb] (slides & video coming soon)
+## Build
 
-[ngneb]: http://www.meetup.com/ng-nebraska/events/229904576/
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
