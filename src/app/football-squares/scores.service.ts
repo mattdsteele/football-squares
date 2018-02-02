@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 
-interface Score {
+export interface Score {
   home: number;
   away: number;
   outcome: number;
