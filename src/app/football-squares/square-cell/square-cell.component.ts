@@ -13,8 +13,8 @@ export class SquareCell {
   @Input() scoreData: Score[];
   @Input() stats;
 
-  currentlyVisible = false;
-  constructor() {}
+  private currentlyVisible = false;
+
   show() {
     this.currentlyVisible = true;
   }
@@ -26,7 +26,7 @@ export class SquareCell {
     return this.alwaysVisible || this.currentlyVisible;
   }
 
-  percentage() {
+  get percentage() {
     if (this.scoreData) {
       return this.scoreData
         .filter(i => i.home === this.home && i.away === this.away)
@@ -35,13 +35,13 @@ export class SquareCell {
   }
 
   visibleOrPercentage() {
-    return this.visible() ? this.percentage() : "";
+    return this.visible() ? this.percentage : "";
   }
 
   priorityLevel() {
     if (this.stats) {
       var index = Math.round(
-        (this.percentage() - this.stats.min) / this.stats.max * 5
+        (this.percentage - this.stats.min) / this.stats.max * 5
       );
       return `priority-level-${index + 1}`;
     }

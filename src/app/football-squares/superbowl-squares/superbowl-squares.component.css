@@ -9,6 +9,7 @@
 #squares td {
   border: 1px solid;
   padding: 0;
+  width: 40px;
 }
 #squares-form {
   background: #fff;
