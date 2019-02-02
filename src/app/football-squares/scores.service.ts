@@ -12,7 +12,7 @@ import quarter3 from '../data/quarter3';
 import superbowl from '../data/superbowl';
 import scores from '../data/scores';
 
-let mappings = {
+const mappings = {
   quarter1,
   quarter2,
   quarter3,
@@ -22,7 +22,7 @@ let mappings = {
 
 @Injectable()
 export class ScoresService {
-  get(dataset: string): Score {
+  get(dataset: string): Score[] {
     return mappings[dataset];
   }
 }

@@ -1,17 +1,18 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { SquaresService } from '../state/squares.service';
 import { Datasets } from './datasets.service';
-import { ScoresService } from './scores.service';
-import { HeaderComponent } from './header/header.component';
 import { FootballSquaresComponent } from './football-squares/football-squares.component';
-import { SuperbowlSquaresComponent } from './superbowl-squares/superbowl-squares.component';
+import { HeaderComponent } from './header/header.component';
+import { ScoresService } from './scores.service';
 import { SquareCell } from './square-cell/square-cell.component';
+import { SuperbowlSquaresComponent } from './superbowl-squares/superbowl-squares.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule],
   exports: [FootballSquaresComponent],
-  providers: [Datasets, ScoresService],
+  providers: [Datasets, ScoresService, SquaresService],
   declarations: [
     FootballSquaresComponent,
     HeaderComponent,
