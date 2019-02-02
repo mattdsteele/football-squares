@@ -6,7 +6,7 @@
         id="allNumbers"
         name="allNumbers"
         [formControl]="allNumbers"
-        (input)="toggleNumbers($event.target.checked)"
+        (change)="toggleNumbers($event.target.checked)"
       />
       <label for="allNumbers">Show all numbers</label>
     </span>

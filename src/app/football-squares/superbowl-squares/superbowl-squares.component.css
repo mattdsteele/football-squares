@@ -25,6 +25,7 @@
 #dataset {
   float: left;
 }
+select,
 select:focus {
   font-size: 16px;
 }
