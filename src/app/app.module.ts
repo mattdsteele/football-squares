@@ -1,18 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { FootballSquaresModule } from './football-squares/football-squares.module';
-import { environment } from 'src/environments/environment';
 
+// let imports: any[] = [FootballSquaresModule, BrowserModule];
+// if (environment.production) {
+//   imports = [...imports, AkitaNgDevtools.forRoot()];
+// }
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    FootballSquaresModule,
-    BrowserModule,
-    environment.production ? null : AkitaNgDevtools.forRoot()
-  ],
+  imports: [FootballSquaresModule, BrowserModule],
   providers: [],
   bootstrap: [AppComponent]
 })
