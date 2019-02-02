@@ -1,10 +1,10 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { Score } from "../scores.service";
+import { Component, OnInit, Input } from '@angular/core';
+import { Score } from '../scores.service';
 
 @Component({
-  selector: "app-square-cell",
-  templateUrl: "./square-cell.component.html",
-  styleUrls: ["./square-cell.component.css"]
+  selector: 'app-square-cell',
+  templateUrl: './square-cell.component.html',
+  styleUrls: ['./square-cell.component.css']
 })
 export class SquareCell {
   @Input() alwaysVisible: boolean;
@@ -35,13 +35,13 @@ export class SquareCell {
   }
 
   visibleOrPercentage() {
-    return this.visible() ? this.percentage : "";
+    return this.visible() ? this.percentage : '';
   }
 
   priorityLevel() {
     if (this.stats) {
       var index = Math.round(
-        (this.percentage - this.stats.min) / this.stats.max * 5
+        ((this.percentage - this.stats.min) / this.stats.max) * 5
       );
       return `priority-level-${index + 1}`;
     }

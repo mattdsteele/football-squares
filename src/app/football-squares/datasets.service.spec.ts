@@ -9,7 +9,10 @@ describe('DatasetsService', () => {
     });
   });
 
-  it('should be created', inject([DatasetsService], (service: DatasetsService) => {
-    expect(service).toBeTruthy();
-  }));
+  it('should be created', inject(
+    [DatasetsService],
+    (service: DatasetsService) => {
+      expect(service).toBeTruthy();
+    }
+  ));
 });

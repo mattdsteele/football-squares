@@ -1,18 +1,16 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FootballSquaresComponent } from "./football-squares.component";
+import { FootballSquaresComponent } from './football-squares.component';
 
-describe("FootballSquaresComponent", () => {
+describe('FootballSquaresComponent', () => {
   let component: FootballSquaresComponent;
   let fixture: ComponentFixture<FootballSquaresComponent>;
 
-  beforeEach(
-    async(() => {
-      TestBed.configureTestingModule({
-        declarations: [FootballSquaresComponent]
-      }).compileComponents();
-    })
-  );
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [FootballSquaresComponent]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FootballSquaresComponent);
@@ -20,7 +18,7 @@ describe("FootballSquaresComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

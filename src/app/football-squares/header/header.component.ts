@@ -1,8 +1,8 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
-  selector: "superbowl-header",
-  styleUrls: ["./header.component.css"],
+  selector: 'superbowl-header',
+  styleUrls: ['./header.component.css'],
   template: `
     <div id="header">
       <h1>

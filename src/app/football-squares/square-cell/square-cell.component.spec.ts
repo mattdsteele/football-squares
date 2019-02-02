@@ -8,9 +8,8 @@ describe('SquareCellComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SquareCellComponent ]
-    })
-    .compileComponents();
+      declarations: [SquareCellComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

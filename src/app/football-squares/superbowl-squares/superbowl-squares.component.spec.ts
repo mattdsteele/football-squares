@@ -8,9 +8,8 @@ describe('SuperbowlSquaresComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SuperbowlSquaresComponent ]
-    })
-    .compileComponents();
+      declarations: [SuperbowlSquaresComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

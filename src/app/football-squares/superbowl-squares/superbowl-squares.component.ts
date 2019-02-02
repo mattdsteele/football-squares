@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
-import { Datasets } from "../datasets.service";
-import { ScoresService, Score } from "../scores.service";
+import { Component, OnInit } from '@angular/core';
+import { Datasets } from '../datasets.service';
+import { ScoresService, Score } from '../scores.service';
 
 let getMinAndMax = data => {
   let sortedData = data.map(x => x.outcome).sort((a, b) => a - b);
@@ -11,9 +11,9 @@ let getMinAndMax = data => {
 };
 
 @Component({
-  selector: "app-superbowl-squares",
-  templateUrl: "./superbowl-squares.component.html",
-  styleUrls: ["./superbowl-squares.component.css"]
+  selector: 'app-superbowl-squares',
+  templateUrl: './superbowl-squares.component.html',
+  styleUrls: ['./superbowl-squares.component.css']
 })
 export class SuperbowlSquaresComponent {
   stats: { min: any; max: any; diff: number; deltas: number };
@@ -22,7 +22,7 @@ export class SuperbowlSquaresComponent {
   rows = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   columns = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   allNumbers = false;
-  dataset = "";
+  dataset = '';
   constructor(datasetsService: Datasets, private ScoresService: ScoresService) {
     this.datasets = datasetsService.datasets;
   }

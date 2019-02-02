@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 export interface Score {
   home: number;
@@ -6,11 +6,11 @@ export interface Score {
   outcome: number;
 }
 
-import quarter1 from "../data/quarter1";
-import quarter2 from "../data/quarter2";
-import quarter3 from "../data/quarter3";
-import superbowl from "../data/superbowl";
-import scores from "../data/scores";
+import quarter1 from '../data/quarter1';
+import quarter2 from '../data/quarter2';
+import quarter3 from '../data/quarter3';
+import superbowl from '../data/superbowl';
+import scores from '../data/scores';
 
 let mappings = {
   quarter1,

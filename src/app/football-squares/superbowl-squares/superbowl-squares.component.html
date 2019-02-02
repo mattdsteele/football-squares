@@ -1,29 +1,57 @@
 <div id="container">
   <form id="squares-form">
     <span id="allNumbersCheck">
-      <input type="checkbox" id="allNumbers" name="allNumbers" [(ngModel)]="allNumbers" #allNums>
+      <input
+        type="checkbox"
+        id="allNumbers"
+        name="allNumbers"
+        [(ngModel)]="allNumbers"
+        #allNums
+      />
       <label for="allNumbers">Show all numbers</label>
     </span>
     <select id="dataset" (change)="updateDataset($event.target.value)">
       <option value="">Dataset</option>
-      <option *ngFor="let option of datasets" [value]="option.id">{{option.name}}</option>
+      <option *ngFor="let option of datasets" [value]="option.id">{{
+        option.name
+      }}</option>
     </select>
     <table id="squares">
       <thead>
         <tr>
           <td></td>
-          <td *ngFor="let column of columns, let i=index">
-            <input id="away-{{i}}" type="number" name="away-{{i}}" [(ngModel)]="columns[column]" min="0" max="9">
+          <td *ngFor="let column of columns; let i = index">
+            <input
+              id="away-{{ i }}"
+              type="number"
+              name="away-{{ i }}"
+              [(ngModel)]="columns[column]"
+              min="0"
+              max="9"
+            />
           </td>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let row of rows, let i=index">
+        <tr *ngFor="let row of rows; let i = index">
           <td>
-            <input id="home-{{i}}" name="home-{{i}}" type="number" [(ngModel)]="rows[row]" min="0" max="9">
+            <input
+              id="home-{{ i }}"
+              name="home-{{ i }}"
+              type="number"
+              [(ngModel)]="rows[row]"
+              min="0"
+              max="9"
+            />
           </td>
           <td *ngFor="let column of columns">
-            <app-square-cell [scoreData]="data" [stats]="stats" [home]="rows[row]" [away]="columns[column]" [alwaysVisible]="allNumbers">
+            <app-square-cell
+              [scoreData]="data"
+              [stats]="stats"
+              [home]="rows[row]"
+              [away]="columns[column]"
+              [alwaysVisible]="allNumbers"
+            >
             </app-square-cell>
           </td>
         </tr>
