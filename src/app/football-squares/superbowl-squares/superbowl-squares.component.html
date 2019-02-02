@@ -1,15 +1,20 @@
 <div id="container">
-  <form id="squares-form">
+  <div class="squares-form">
     <span id="allNumbersCheck">
       <input
         type="checkbox"
         id="allNumbers"
         name="allNumbers"
+        [formControl]="allNumbers"
         (input)="toggleNumbers($event.target.checked)"
       />
       <label for="allNumbers">Show all numbers</label>
     </span>
-    <select id="dataset" (change)="updateDataset($event.target.value)">
+    <select
+      id="dataset"
+      (change)="updateDataset($event.target.value)"
+      [formControl]="dataset"
+    >
       <option value="">Dataset</option>
       <option *ngFor="let option of datasets" [value]="option.id">{{
         option.name
@@ -20,28 +25,14 @@
         <tr>
           <td></td>
           <td *ngFor="let column of columns; let i = index">
-            <input
-              id="away-{{ i }}"
-              type="number"
-              name="away-{{ i }}"
-              [(ngModel)]="columns[column]"
-              min="0"
-              max="9"
-            />
+            {{ i }}
           </td>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let row of rows; let i = index">
           <td>
-            <input
-              id="home-{{ i }}"
-              name="home-{{ i }}"
-              type="number"
-              [(ngModel)]="rows[row]"
-              min="0"
-              max="9"
-            />
+            {{ i }}
           </td>
           <td *ngFor="let column of columns">
             <app-square-cell [home]="rows[row]" [away]="columns[column]">
@@ -50,5 +41,5 @@
         </tr>
       </tbody>
     </table>
-  </form>
+  </div>
 </div>

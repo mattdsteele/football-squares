@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { SquaresService } from '../state/squares.service';
 import { Datasets } from './datasets.service';
 import { FootballSquaresComponent } from './football-squares/football-squares.component';
@@ -10,7 +10,7 @@ import { SquareCellComponent } from './square-cell/square-cell.component';
 import { SuperbowlSquaresComponent } from './superbowl-squares/superbowl-squares.component';
 
 @NgModule({
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   exports: [FootballSquaresComponent],
   providers: [Datasets, ScoresService, SquaresService],
   declarations: [

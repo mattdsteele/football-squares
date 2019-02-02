@@ -4,6 +4,7 @@ import { SquaresQuery } from 'src/app/state/squares.query';
 import { SquaresService } from 'src/app/state/squares.service';
 import { Score } from '../scores.service';
 import { Datasets } from '../datasets.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-superbowl-squares',
@@ -14,8 +15,8 @@ export class SuperbowlSquaresComponent implements OnInit {
   data$: Observable<Score[]>;
   rows = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   columns = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  allNumbers = false;
-  dataset = '';
+  allNumbers = new FormControl(false);
+  dataset = new FormControl('');
   currentQuarter$: Observable<string>;
   datasets: { id: string; name: string }[];
   constructor(
@@ -27,6 +28,10 @@ export class SuperbowlSquaresComponent implements OnInit {
   ngOnInit() {
     this.currentQuarter$ = this.query.quarter$;
     this.datasets = this.datasetService.datasets;
+    this.currentQuarter$.subscribe(q => this.dataset.setValue(q));
+    this.query.showAllNumbers$.subscribe(allNums =>
+      this.allNumbers.setValue(allNums)
+    );
   }
 
   toggleNumbers(isChecked: boolean) {
