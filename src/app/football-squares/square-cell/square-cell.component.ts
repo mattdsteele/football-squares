@@ -63,7 +63,7 @@ export class SquareCellComponent implements OnInit {
 
   get percentage() {
     if (this.score) {
-      return this.score.outcome;
+      return Math.round(this.score.outcome * 10) / 10;
     }
   }
 
