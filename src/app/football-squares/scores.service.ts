@@ -10,7 +10,7 @@ import quarter1 from '../data/quarter1';
 import quarter2 from '../data/quarter2';
 import quarter3 from '../data/quarter3';
 import superbowl from '../data/superbowl';
-import scores from '../data/scores';
+import scores from '../data/allScores';
 
 const mappings = {
   quarter1,

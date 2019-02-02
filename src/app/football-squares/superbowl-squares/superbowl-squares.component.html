@@ -5,8 +5,7 @@
         type="checkbox"
         id="allNumbers"
         name="allNumbers"
-        [(ngModel)]="allNumbers"
-        #allNums
+        (input)="toggleNumbers($event.target.checked)"
       />
       <label for="allNumbers">Show all numbers</label>
     </span>
@@ -45,13 +44,7 @@
             />
           </td>
           <td *ngFor="let column of columns">
-            <app-square-cell
-              [scoreData]="data"
-              [stats]="stats"
-              [home]="rows[row]"
-              [away]="columns[column]"
-              [alwaysVisible]="allNumbers"
-            >
+            <app-square-cell [home]="rows[row]" [away]="columns[column]">
             </app-square-cell>
           </td>
         </tr>

@@ -6,7 +6,7 @@ import { Datasets } from './datasets.service';
 import { FootballSquaresComponent } from './football-squares/football-squares.component';
 import { HeaderComponent } from './header/header.component';
 import { ScoresService } from './scores.service';
-import { SquareCell } from './square-cell/square-cell.component';
+import { SquareCellComponent } from './square-cell/square-cell.component';
 import { SuperbowlSquaresComponent } from './superbowl-squares/superbowl-squares.component';
 
 @NgModule({
@@ -17,7 +17,7 @@ import { SuperbowlSquaresComponent } from './superbowl-squares/superbowl-squares
     FootballSquaresComponent,
     HeaderComponent,
     SuperbowlSquaresComponent,
-    SquareCell
+    SquareCellComponent
   ]
 })
 export class FootballSquaresModule {}

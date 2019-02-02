@@ -6,8 +6,11 @@ import { SquaresState, SquaresStore } from './squares.store';
   providedIn: 'root'
 })
 export class SquaresQuery extends Query<SquaresState> {
-  quarter$ = this.select(s => s.quarter);
   constructor(protected store: SquaresStore) {
     super(store);
   }
+  scores$ = this.select(s => s.dataset);
+  quarter$ = this.select(s => s.quarter);
+  stats$ = this.select(s => s.stats);
+  showAllNumbers$ = this.select(s => s.showAllNumbers);
 }
