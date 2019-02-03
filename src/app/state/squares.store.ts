@@ -9,7 +9,7 @@ export interface SquaresState {
 }
 export const createInitialState = (): SquaresState => {
   return {
-    quarter: 'quarter1',
+    quarter: '',
     dataset: [],
     stats: null,
     showAllNumbers: false

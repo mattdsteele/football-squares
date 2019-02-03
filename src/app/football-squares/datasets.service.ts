@@ -5,11 +5,11 @@ export class Datasets {
   datasets: { id: string; name: string }[];
   constructor() {
     this.datasets = [
-      { id: 'scores', name: 'All Games' },
-      { id: 'quarter1', name: 'Quarter 1' },
-      { id: 'quarter2', name: 'Quarter 2' },
-      { id: 'quarter3', name: 'Quarter 3' },
-      { id: 'superbowl', name: 'Super Bowl' }
+      { id: 'quarter1', name: 'Q1' },
+      { id: 'quarter2', name: 'Q2' },
+      { id: 'quarter3', name: 'Q3' },
+      { id: 'scores', name: 'Q4 - All Games' },
+      { id: 'superbowl', name: 'Q4 - Super Bowl Only' }
     ];
   }
 }

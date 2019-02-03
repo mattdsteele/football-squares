@@ -3,24 +3,27 @@
   width: 100%;
 }
 div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 40px;
 }
 .priority-level-1 {
-  background-color: #cff;
+  background-color: #d9bc2b;
 }
 .priority-level-2 {
-  background-color: #52ffff;
+  background-color: #d99518;
 }
 .priority-level-3 {
-  background-color: #bf00ff;
+  background-color: #d98218;
 }
 .priority-level-4 {
-  background-color: #ff00bf;
+  background-color: #d9601a;
 }
 .priority-level-5 {
-  background-color: #ff0040;
+  background-color: #bf3111;
 }
 .priority-level-6 {
-  background-color: #ff4000;
+  background-color: #ef4000;
 }

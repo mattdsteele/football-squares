@@ -1,13 +1,12 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   Input,
-  OnInit,
-  ChangeDetectionStrategy
+  OnInit
 } from '@angular/core';
-import { map, filter } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 import { SquaresQuery } from 'src/app/state/squares.query';
 import { Score } from '../scores.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-square-cell',
