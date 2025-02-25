@@ -9,9 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "prettier": "prettier \"src/**/*.ts\" --write",
-    "e2e": "ng e2e",
-    "build:modern": "ng build --plugin ngx-build-modern --prod",
-    "build:modern:squares": "ng build --plugin ngx-build-modern --project squares --prod"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -27,8 +25,6 @@
     "@angular/service-worker": "~7.2.0",
     "@datorama/akita": "^2.1.1",
     "core-js": "^2.5.4",
-    "ngx-build-modern": "^1.1.8",
-    "ngx-build-plus": "^7.7.3",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
