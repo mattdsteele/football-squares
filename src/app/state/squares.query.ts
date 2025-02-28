@@ -1,16 +1,34 @@
 import { Injectable } from '@angular/core';
-import { Query } from '@datorama/akita';
-import { SquaresState, SquaresStore } from './squares.store';
+import { Score } from '../football-squares/scores.service';
+import { BehaviorSubject, ObjectUnsubscribedError } from 'rxjs';
+
+export interface SquaresState {
+  quarter: string;
+  dataset: Score[];
+  stats: { min: any; max: any; diff: number; deltas: number };
+  showAllNumbers: boolean;
+}
 
 @Injectable({
   providedIn: 'root'
 })
-export class SquaresQuery extends Query<SquaresState> {
-  constructor(protected store: SquaresStore) {
-    super(store);
+export class SquaresQuery {
+  quarter = new BehaviorSubject<string>('');
+  dataset = new BehaviorSubject<Score[]>([]);
+  stats = new BehaviorSubject<{ min: any; max: any; diff: number; deltas: number }>(null);
+  showAllNumbers = new BehaviorSubject<boolean>(false);
+
+  scores$ = this.dataset.asObservable();
+  quarter$ = this.quarter.asObservable();
+  stats$ = this.stats.asObservable();
+  showAllNumbers$ = this.showAllNumbers.asObservable();
+
+  updateShowAllNumbers(showAllNumbers: boolean) {
+    this.showAllNumbers.next(showAllNumbers);
   }
-  scores$ = this.select(s => s.dataset);
-  quarter$ = this.select(s => s.quarter);
-  stats$ = this.select(s => s.stats);
-  showAllNumbers$ = this.select(s => s.showAllNumbers);
+  update({dataset, quarter, stats}: Partial<SquaresState>) {
+    this.dataset.next(dataset);
+    this.quarter.next(quarter);
+    this.stats.next(stats);
+  }
 }
