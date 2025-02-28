@@ -25,3 +25,10 @@ build 17632
 serve 5163
 size 224
 lighthouse 97
+
+v11 (had to set legacy-peer-deps)
+node_modules 587
+build 18691
+serve 5088
+size 220
+lighthouse 96
