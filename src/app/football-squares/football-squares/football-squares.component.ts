@@ -10,7 +10,7 @@ import { SuperbowlSquaresComponent } from '../superbowl-squares/superbowl-square
       <div class="header-lede">Super Bowl</div>
       <div class="header-subhead">Squares</div>
     </superbowl-header>
-    <app-superbowl-squares></app-superbowl-squares>
+    <app-superbowl-squares />
   `,
     imports: [HeaderComponent, SuperbowlSquaresComponent]
 })
