@@ -1,4 +1,6 @@
 v7
-build 9682
-serve 5513
-size 
+node_modules 373
+build 14276
+serve 5290
+size 272
+lighthouse 93
