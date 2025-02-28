@@ -74,3 +74,10 @@ build 12932
 serve 8620
 size 206
 lighthouse 97
+
+v18
+node_modules 533
+build 4453
+serve 3022
+size 218
+lighthouse 97
