@@ -32,3 +32,10 @@ build 18691
 serve 5088
 size 220
 lighthouse 96
+
+v12 (run with npx)
+node_modules 520
+build 16018
+serve 5019
+size 214
+lighthouse 97
