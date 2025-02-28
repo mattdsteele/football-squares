@@ -7,38 +7,46 @@
         name="allNumbers"
         [formControl]="allNumbers"
         (change)="toggleNumbers($event.target.checked)"
-      />
+        />
       <label for="allNumbers">Show %s</label>
     </span>
     <select
       id="dataset"
       (change)="updateDataset($event.target.value)"
       [formControl]="dataset"
-    >
+      >
       <option value="">Dataset</option>
-      <option *ngFor="let option of datasets" [value]="option.id">{{
-        option.name
-      }}</option>
+      @for (option of datasets; track option) {
+        <option [value]="option.id">{{
+          option.name
+        }}</option>
+      }
     </select>
     <table id="squares">
       <thead>
         <tr>
           <td></td>
-          <td *ngFor="let column of columns; let i = index">
-            {{ i }}
-          </td>
+          @for (column of columns; track column; let i = $index) {
+            <td>
+              {{ i }}
+            </td>
+          }
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let row of rows; let i = index">
-          <td>
-            {{ i }}
-          </td>
-          <td *ngFor="let column of columns">
-            <app-square-cell [home]="rows[row]" [away]="columns[column]">
-            </app-square-cell>
-          </td>
-        </tr>
+        @for (row of rows; track row; let i = $index) {
+          <tr>
+            <td>
+              {{ i }}
+            </td>
+            @for (column of columns; track column) {
+              <td>
+                <app-square-cell [home]="rows[row]" [away]="columns[column]">
+                </app-square-cell>
+              </td>
+            }
+          </tr>
+        }
       </tbody>
     </table>
   </div>
