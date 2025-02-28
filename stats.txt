@@ -81,3 +81,10 @@ build 4453
 serve 3022
 size 218
 lighthouse 97
+
+v19
+node_modules 502
+build 4653
+serve 3510
+size 220
+lighthouse 97

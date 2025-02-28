@@ -7,9 +7,10 @@ import { Datasets } from '../datasets.service';
 import { UntypedFormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-superbowl-squares',
-  templateUrl: './superbowl-squares.component.html',
-  styleUrls: ['./superbowl-squares.component.css']
+    selector: 'app-superbowl-squares',
+    templateUrl: './superbowl-squares.component.html',
+    styleUrls: ['./superbowl-squares.component.css'],
+    standalone: false
 })
 export class SuperbowlSquaresComponent implements OnInit {
   data$: Observable<Score[]>;

@@ -9,10 +9,11 @@ import { SquaresQuery } from 'src/app/state/squares.query';
 import { Score } from '../scores.service';
 
 @Component({
-  selector: 'app-square-cell',
-  templateUrl: './square-cell.component.html',
-  styleUrls: ['./square-cell.component.css'],
-  changeDetection: ChangeDetectionStrategy.Default
+    selector: 'app-square-cell',
+    templateUrl: './square-cell.component.html',
+    styleUrls: ['./square-cell.component.css'],
+    changeDetection: ChangeDetectionStrategy.Default,
+    standalone: false
 })
 export class SquareCellComponent implements OnInit {
   priorityLevel: string;
