@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SquaresQuery } from 'src/app/state/squares.query';
 import { SquaresService } from 'src/app/state/squares.service';
@@ -14,6 +14,10 @@ import { SquareCellComponent } from '../square-cell/square-cell.component';
     imports: [ReactiveFormsModule, SquareCellComponent]
 })
 export class SuperbowlSquaresComponent implements OnInit {
+  private query = inject(SquaresQuery);
+  private squares = inject(SquaresService);
+  private datasetService = inject(Datasets);
+
   data$: Observable<Score[]>;
   rows = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   columns = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -21,11 +25,6 @@ export class SuperbowlSquaresComponent implements OnInit {
   dataset = new UntypedFormControl('');
   currentQuarter$: Observable<string>;
   datasets: { id: string; name: string }[];
-  constructor(
-    private query: SquaresQuery,
-    private squares: SquaresService,
-    private datasetService: Datasets
-  ) {}
 
   ngOnInit() {
     this.currentQuarter$ = this.query.quarter$;

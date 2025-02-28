@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { SquaresStore } from './squares.store';
 import { ScoresService, Score } from '../football-squares/scores.service';
 import { SquaresQuery } from './squares.query';
@@ -7,7 +7,9 @@ import { SquaresQuery } from './squares.query';
   providedIn: 'root'
 })
 export class SquaresService {
-  constructor(private store: SquaresQuery, private scores: ScoresService) {}
+  private store = inject(SquaresQuery);
+  private scores = inject(ScoresService);
+
   getMinAndMax(data: Score[]) {
     const sortedData = data.map(x => x.outcome).sort((a, b) => a - b);
     const [min, max] = [sortedData[0], sortedData[sortedData.length - 1]];

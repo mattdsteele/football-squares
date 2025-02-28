@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject, input } from '@angular/core';
 import { filter, map } from 'rxjs/operators';
 import { SquaresQuery } from 'src/app/state/squares.query';
 import { Score } from '../scores.service';
@@ -17,12 +12,13 @@ import { NgClass } from '@angular/common';
     imports: [NgClass]
 })
 export class SquareCellComponent implements OnInit {
+  private squaresQuery = inject(SquaresQuery);
+
   priorityLevel: string;
-  constructor(private squaresQuery: SquaresQuery) {}
 
   alwaysVisible: boolean;
-  @Input() home: number;
-  @Input() away: number;
+  readonly home = input<number>(undefined);
+  readonly away = input<number>(undefined);
   stats: { min: number; max: number };
 
   score: Score;
@@ -37,7 +33,7 @@ export class SquareCellComponent implements OnInit {
         map(
           scores =>
             scores.filter(s => {
-              return s.away === this.away && s.home === this.home;
+              return s.away === this.away() && s.home === this.home();
             })[0]
         )
       )
