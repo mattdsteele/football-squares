@@ -18,3 +18,10 @@ build 18566
 serve 5792
 size 230
 lighthouse 95
+
+v10
+node_modules 541
+build 17632
+serve 5163
+size 224
+lighthouse 97
