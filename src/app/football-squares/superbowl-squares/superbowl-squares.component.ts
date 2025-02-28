@@ -4,13 +4,14 @@ import { SquaresQuery } from 'src/app/state/squares.query';
 import { SquaresService } from 'src/app/state/squares.service';
 import { Score } from '../scores.service';
 import { Datasets } from '../datasets.service';
-import { UntypedFormControl } from '@angular/forms';
+import { UntypedFormControl, ReactiveFormsModule } from '@angular/forms';
+import { SquareCellComponent } from '../square-cell/square-cell.component';
 
 @Component({
     selector: 'app-superbowl-squares',
     templateUrl: './superbowl-squares.component.html',
     styleUrls: ['./superbowl-squares.component.css'],
-    standalone: false
+    imports: [ReactiveFormsModule, SquareCellComponent]
 })
 export class SuperbowlSquaresComponent implements OnInit {
   data$: Observable<Score[]>;

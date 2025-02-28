@@ -10,7 +10,6 @@ import { Component } from '@angular/core';
         <ng-content select=".header-subhead"></ng-content>
       </h1>
     </div>
-  `,
-    standalone: false
+  `
 })
 export class HeaderComponent {}

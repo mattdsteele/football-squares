@@ -10,14 +10,11 @@ import { SquareCellComponent } from './square-cell/square-cell.component';
 import { SuperbowlSquaresComponent } from './superbowl-squares/superbowl-squares.component';
 
 @NgModule({
-  imports: [CommonModule, ReactiveFormsModule],
-  exports: [FootballSquaresComponent],
-  providers: [Datasets, ScoresService, SquaresService],
-  declarations: [
-    FootballSquaresComponent,
-    HeaderComponent,
-    SuperbowlSquaresComponent,
-    SquareCellComponent
-  ]
+    imports: [CommonModule, ReactiveFormsModule, FootballSquaresComponent,
+        HeaderComponent,
+        SuperbowlSquaresComponent,
+        SquareCellComponent],
+    exports: [FootballSquaresComponent],
+    providers: [Datasets, ScoresService, SquaresService]
 })
 export class FootballSquaresModule {}

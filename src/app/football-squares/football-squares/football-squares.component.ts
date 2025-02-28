@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HeaderComponent } from '../header/header.component';
+import { SuperbowlSquaresComponent } from '../superbowl-squares/superbowl-squares.component';
 
 @Component({
     selector: 'app-football-squares',
@@ -10,6 +12,6 @@ import { Component } from '@angular/core';
     </superbowl-header>
     <app-superbowl-squares></app-superbowl-squares>
   `,
-    standalone: false
+    imports: [HeaderComponent, SuperbowlSquaresComponent]
 })
 export class FootballSquaresComponent {}

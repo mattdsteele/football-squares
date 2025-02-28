@@ -7,13 +7,14 @@ import {
 import { filter, map } from 'rxjs/operators';
 import { SquaresQuery } from 'src/app/state/squares.query';
 import { Score } from '../scores.service';
+import { NgClass } from '@angular/common';
 
 @Component({
     selector: 'app-square-cell',
     templateUrl: './square-cell.component.html',
     styleUrls: ['./square-cell.component.css'],
     changeDetection: ChangeDetectionStrategy.Default,
-    standalone: false
+    imports: [NgClass]
 })
 export class SquareCellComponent implements OnInit {
   priorityLevel: string;

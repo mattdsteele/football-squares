@@ -1,13 +1,17 @@
-import { enableProdMode } from '@angular/core';
+import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { AppModule } from './app/app.module';
+
 import { environment } from './environments/environment';
+import { FootballSquaresModule } from './app/football-squares/football-squares.module';
+import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from './app/app.component';
 
 if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic()
-  .bootstrapModule(AppModule)
+bootstrapApplication(AppComponent, {
+    providers: [importProvidersFrom(FootballSquaresModule, BrowserModule)]
+})
   .catch(err => console.error(err));
