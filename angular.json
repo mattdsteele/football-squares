@@ -121,5 +121,7 @@
       }
     }
   },
-  "defaultProject": "squares"
+  "cli": {
+    "analytics": false
+  }
 }
