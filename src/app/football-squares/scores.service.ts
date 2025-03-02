@@ -20,7 +20,7 @@ const mappings = {
   scores
 };
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class ScoresService {
   get(dataset: string): Score[] {
     return mappings[dataset];

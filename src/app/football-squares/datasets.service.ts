@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class Datasets {
   datasets: { id: string; name: string }[];
   constructor() {
